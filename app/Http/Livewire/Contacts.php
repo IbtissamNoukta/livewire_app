@@ -11,17 +11,35 @@ class Contacts extends Component
     public $contacts;
     public $name = '';
     public $phone  = '';
+
+    protected $rules = [
+        'name' => 'required|min:3',
+        'phone' => 'required|min:10|numeric',
+    ];
+
     //first hook
     public function mount(){
-        $contactsList = Contact::all();
+        //last in top
+        $contactsList = Contact::latest()->get();
+        //first in top
+        //$contactsList = Contact::all();
         $this->contacts = $contactsList;
     }
 
     public function storeContact(){
-        array_unshift($this->contacts,[
-            'name' => $this->name,
-            'phone' => $this->phone
-        ]);
+        $this->validate();
+        // array_unshift($this->contacts,[
+        //     'name' => $this->name,
+        //     'phone' => $this->phone
+        // ]);
+        $newContact = new Contact();
+        $newContact->name = $this->name;
+        $newContact->phone = $this->phone;
+        $newContact->save();
+        //The prepend method will add a a given $value to the beginning of the collection
+        $this->contacts->prepend($newContact);
+        $this->name='';
+        $this->phone='';
     }
 
     public function render()

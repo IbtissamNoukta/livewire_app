@@ -7,12 +7,14 @@
                 <!-- Using form state modifiers, the classes can be identical for every input -->
                 <input wire:model="name" type="text" placeholder="Name" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"/>
+                @error('name') <span class="error text-red-600">{{ $message }}</span> @enderror
             </label>
             <label class="block my-4">
                 <span class="block text-sm font-medium text-slate-700">Contact phone</span>
                 <!-- Using form state modifiers, the classes can be identical for every input -->
                 <input wire:model="phone" type="text" placeholder="Phone number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"/>
+                @error('phone') <span class="error text-red-600">{{ $message }}</span> @enderror
             </label>
             <label class="flex justify-between">
                 <!-- add contact -->

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Livewire;
+use App\Models\Contact;
+
 
 use Livewire\Component;
 
@@ -10,7 +12,8 @@ class Contacts extends Component
     public $name = '';
     public $phone  = '';
     //first hook
-    public function mount($contactsList){
+    public function mount(){
+        $contactsList = Contact::all();
         $this->contacts = $contactsList;
     }
 

@@ -13,6 +13,6 @@
     </head>
     <body>
         @livewireScripts
-        <livewire:contacts :contactsList="$contacts"/>
+        <livewire:contacts/>
     </body>
 </html>

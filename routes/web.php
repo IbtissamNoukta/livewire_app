@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Contact;
 
 
 /*
@@ -16,8 +15,5 @@ use App\Models\Contact;
 */
 
 Route::get('/', function () {
-    $contacts = Contact::all();
-    return view('welcome')->with([
-        'contacts' => $contacts,
-    ]);
+    return view('welcome');
 });

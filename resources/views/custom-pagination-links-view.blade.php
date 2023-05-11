@@ -1,3 +1,4 @@
+{{-- pagination --}}
 <div class="relative mx-auto w-auto max-w-2xl">
     @if ($paginator->hasPages())
         <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">

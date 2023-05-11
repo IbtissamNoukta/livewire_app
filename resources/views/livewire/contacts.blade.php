@@ -1,5 +1,6 @@
 <div>
     {{-- The whole world belongs to you. --}}
+    @auth
     <div class="relative mx-auto w-auto max-w-2xl">
         <div class="bg-white w-full mt-2 p-5 border-solid border-2 rounded-md divide-gray-400">
             <label class="block mb-4">
@@ -86,4 +87,14 @@
     <div class="mb-2">
         {{ $contactsList->links('custom-pagination-links-view') }}
     </div>
+    @endauth
+    @guest
+    <div class="relative mx-auto w-auto max-w-2xl my-10">
+        <div class="flex justify-center">
+            <a href="/auth">
+                <p class="text-2xl font-bold text-slate-500">Go to Login/Register page </p>
+            </a>
+        </div>
+    </div>
+    @endguest
 </div>
